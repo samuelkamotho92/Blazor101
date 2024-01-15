@@ -1,0 +1,79 @@
+﻿@page "/"
+
+
+@if(bookings.Count == 0){
+    <p>Booking ddoes not exists</p>
+}else{
+        <div class="row">
+    @foreach(var book in bookings)
+    {
+            <div class="card shadow col-4 p-4 mx-2" style="width:18rem">
+                <img src="@book.image" alt="@book.Title" />
+                <div class="card-body">
+                    <h5 class="card-title"> @book.Title</h5>
+                    <div class="d-flex justify-content-between">
+                        <span>
+                            @book.Description
+                        </span>
+                        <span>
+                            @book.Price ksh per Person
+                        </span>
+                    </div>
+                </div>
+            </div>
+    }
+        </div>
+}
+
+@code{
+
+
+    public List<Booking> bookings = new List<Booking>()
+    {
+        new Booking()
+        {
+            Id=1,
+            Title="Massai Mara National park",
+            Description="Check wilderbeast migration",
+            Price=2000,
+            Created = DateTime.Now,
+            image="https://www.maasaimarakenyapark.com/wp-content/uploads/2023/07/maasai-mara-8-3.jpg"
+        },
+          new Booking()
+        {
+            Id=2,
+            Title="Nairobi National park",
+            Description="Park Near in the City",
+            Price=1000,
+            Created = DateTime.Now,
+            image="https://i0.wp.com/www.campoeasafaris.com/wp-content/uploads/2021/05/nairobi-national-park-main-gate.jpeg?fit=1024%2C768&ssl=1"
+        },
+          new Booking()
+        {
+            Id=3,
+            Title="Tsavo National Park",
+            Description="Beautiful wild animals",
+            Price=3000,
+            Created = DateTime.Now,
+            image="https://www.tsavonationalparkkenya.com/wp-content/uploads/2020/05/Tsavo-west-national-park-Kenya.jpg"
+        },
+          new Booking()
+        {
+            Id=4,
+            Title="Amboseli National park",
+            Description="Park on the savannah of mt kilimanjaro",
+            Price=5000,
+            Created = DateTime.Now,
+            image="https://lp-cms-production.imgix.net/2019-06/148309239_full.jpg"
+        },
+          new Booking()
+        {
+            Id=5,
+            Title="Mombasa park and reserve",
+            Description="Enjoy the beautiful creaturesat coast",
+            Price=10000,
+            Created = DateTime.Now,
+            image="https://samburunationalreservekenya.com/wp-content/uploads/2022/02/Mombasa-Marine-National-Park-and-Reservefd.jpg"
+        }
+    };
+}
